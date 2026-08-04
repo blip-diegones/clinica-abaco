@@ -81,13 +81,14 @@
     letter-spacing:-0.02em;
   }
   .logo span{color:var(--honey);}
-  .navlinks{display:flex; gap:32px; font-size:0.92rem; font-weight:500;}
+  .navlinks{display:flex; gap:28px; font-size:0.9rem; font-weight:500;}
   .navlinks a{position:relative; padding:4px 0; color:var(--ink);}
   .navlinks a::after{
     content:''; position:absolute; left:0; bottom:-2px; height:2px; width:0;
     background:var(--honey); transition:width .3s ease;
   }
   .navlinks a:hover::after{width:100%;}
+  .navlinks a.highlight-link{color:var(--teal); font-weight:600;}
   .navcta{
     background:var(--teal); color:var(--paper);
     padding:10px 20px; border-radius:100px;
@@ -95,7 +96,7 @@
     white-space:nowrap;
   }
   .navcta:hover{background:var(--teal-light);}
-  @media(max-width:880px){ .navlinks{display:none;} }
+  @media(max-width:960px){ .navlinks{display:none;} }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -335,6 +336,7 @@
       <a href="#servicos">Terapias</a>
       <a href="#equipe">Equipe</a>
       <a href="#localizacao">Localização</a>
+      <a href="/links" class="highlight-link">Central de Links</a>
       <a href="#contato">Contato</a>
     </div>
     <a class="navcta" href="#contato">Agendar conversa</a>
@@ -507,7 +509,7 @@
     </div>
     <div class="depo-grid">
       <div class="depo-card reveal">
-        <p>"O acolhimento com a nossa família fez toda a diferença desde o primeiro dia. Ver o avanço na comunicação do nosso filho brought paz para nossa rotina."</p>
+        <p>"O acolhimento com a nossa família fez toda a diferença desde o primeiro dia. Ver o avanço na comunicação do nosso filho trouxe paz para nossa rotina."</p>
         <div class="depo-author">— Mãe de paciente atendido na ABACO</div>
       </div>
       <div class="depo-card reveal">
@@ -593,6 +595,10 @@
       <div class="info-row">
         <div class="k">Instagram</div>
         <div class="v"><a href="https://www.instagram.com/clinicaabaco/" target="_blank" rel="noopener">@clinicaabaco</a></div>
+      </div>
+      <div class="info-row">
+        <div class="k">Facebook</div>
+        <div class="v"><a href="https://www.facebook.com/ClinicaABACO" target="_blank" rel="noopener">ClinicaABACO</a></div>
       </div>
     </div>
   </div>
