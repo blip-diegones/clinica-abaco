@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica ABACO — Terapia ABA em São Lourenço-MG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF7EF;
+    --paper-deep:#EFE4CC;
+    --ink:#182521;
+    --teal:#1F4A40;
+    --teal-light:#3F6E61;
+    --honey:#E2A63C;
+    --sage:#B7CFB9;
+    --line: rgba(24,37,33,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--honey); color:var(--teal);}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:var(--teal);
+  }
+  em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--honey);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-light);
+  }
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  section{padding:110px 0;}
+  @media(max-width:720px){ section{padding:70px 0;} .wrap{padding:0 22px;} }
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(251,247,239,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:78px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:1.35rem;
+    color:var(--teal);
+    letter-spacing:-0.02em;
+  }
+  .logo span{color:var(--honey);}
+  .navlinks{display:flex; gap:32px; font-size:0.92rem; font-weight:500;}
+  .navlinks a{position:relative; padding:4px 0; color:var(--ink);}
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:-2px; height:2px; width:0;
+    background:var(--honey); transition:width .3s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navcta{
+    background:var(--teal); color:var(--paper);
+    padding:10px 20px; border-radius:100px;
+    font-size:0.88rem; font-weight:600;
+    white-space:nowrap;
+  }
+  .navcta:hover{background:var(--teal-light);}
+  @media(max-width:880px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:180px 0 100px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  @media(max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.8vw, 3.5rem);
+    line-height:1.12;
+    margin:18px 0 24px;
+  }
+  .hero p.lead{
+    font-size:1.1rem; max-width:48ch; color:var(--teal-light);
+  }
+  
+  /* Diferenciais rápidos no Hero */
+  .hero-highlights{
+    display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;
+  }
+  .hero-highlights span{
+    font-size:0.82rem; font-weight:600; color:var(--teal);
+    background:rgba(183,207,185,0.35); border:1px solid var(--sage);
+    padding:4px 12px; border-radius:100px;
+  }
+
+  .hero-ctas{display:flex; gap:16px; margin-top:32px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--honey); color:var(--teal);
+    padding:15px 28px; border-radius:100px;
+    font-weight:600; font-size:0.95rem;
+    box-shadow:0 8px 20px rgba(226,166,60,0.35);
+    transition:transform .25s ease, box-shadow .25s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(226,166,60,0.45);}
+  .btn-ghost{
+    border:1.5px solid var(--teal); color:var(--teal);
+    padding:14px 26px; border-radius:100px;
+    font-weight:600; font-size:0.95rem;
+    transition:background .25s ease, color .25s ease;
+    display:inline-block;
+  }
+  .btn-ghost:hover{background:var(--teal); color:var(--paper);}
+
+  .badge-row{display:flex; gap:26px; margin-top:44px; flex-wrap:wrap;}
+  .badge-row div{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--teal-light);}
+  .badge-row strong{display:block; font-family:'Fraunces',serif; font-size:1.6rem; color:var(--teal); font-weight:600;}
+
+  /* staircase signature card */
+  .hero-visual-card{
+    background:var(--paper-deep);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:36px 28px 28px;
+    box-shadow:0 12px 32px rgba(24,37,33,0.06);
+  }
+  .stairs{
+    position:relative; height:320px; display:flex; align-items:flex-end; justify-content:center; gap:14px;
+  }
+  .stairs .step{
+    width:48px; border-radius:10px 10px 0 0;
+    background:linear-gradient(180deg, var(--sage), var(--teal-light));
+    opacity:0; transform:translateY(40px);
+    animation:rise .7s ease forwards;
+    position:relative;
+  }
+  .stairs .step:nth-child(1){height:60px; animation-delay:.1s; background:linear-gradient(180deg,#CFE0D0,#9FBBA3);}
+  .stairs .step:nth-child(2){height:115px; animation-delay:.28s; background:linear-gradient(180deg,#B7CFB9,#5E8B7B);}
+  .stairs .step:nth-child(3){height:170px; animation-delay:.46s; background:linear-gradient(180deg,#8FB79A,var(--teal-light));}
+  .stairs .step:nth-child(4){height:230px; animation-delay:.64s; background:linear-gradient(180deg,var(--teal-light),var(--teal));}
+  .stairs .step:nth-child(5){height:290px; animation-delay:.82s; background:linear-gradient(180deg,var(--teal),#123128);}
+  .stairs .step:last-child::after{
+    content:'●'; position:absolute; top:-30px; left:50%; transform:translateX(-50%);
+    color:var(--honey); font-size:1.1rem;
+    animation:pop .5s ease 1.3s forwards; opacity:0;
+  }
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+  @keyframes pop{ to{opacity:1;} }
+  .stairs-caption{
+    text-align:center; font-family:'IBM Plex Mono',monospace; font-size:0.72rem;
+    color:var(--teal); margin-top:20px; letter-spacing:0.05em; font-weight:500;
+  }
+
+  /* ---------- SOBRE ---------- */
+  .sobre{background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .sobre-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;}
+  @media(max-width:900px){ .sobre-grid{grid-template-columns:1fr; gap:36px;} }
+  .sobre h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin-bottom:20px;}
+  .sobre .lead{font-size:1.08rem; color:var(--teal-light); max-width:42ch;}
+  .sobre-list{margin-top:8px;}
+  .sobre-list p{margin-bottom:20px; max-width:56ch;}
+  .sobre-list p:last-child{margin-bottom:0;}
+
+  /* ---------- METODO / STEPS ---------- */
+  .metodo .head{max-width:640px; margin:0 auto 64px; text-align:center;}
+  .metodo h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin:14px 0 16px;}
+  .steps{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative;
+  }
+  @media(max-width:900px){ .steps{grid-template-columns:1fr; gap:28px;} }
+  .steps::before{
+    content:''; position:absolute; top:26px; left:6%; right:6%; height:2px;
+    background:repeating-linear-gradient(90deg, var(--sage) 0 8px, transparent 8px 16px);
+  }
+  @media(max-width:900px){ .steps::before{display:none;} }
+  .step-card{padding:0 22px; position:relative;}
+  .step-num{
+    width:52px; height:52px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--teal);
+    color:var(--teal); font-family:'Fraunces',serif; font-weight:600; font-size:1.2rem;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:2; margin-bottom:20px;
+  }
+  .step-card:nth-child(4) .step-num{background:var(--teal); color:var(--honey);}
+  .step-card h3{font-size:1.08rem; margin-bottom:10px; font-weight:600;}
+  .step-card p{font-size:0.94rem; color:var(--teal-light);}
+
+  /* ---------- CTA BANNER INTERMEDIÁRIO ---------- */
+  .cta-banner{
+    background:var(--paper-deep); border:1px solid var(--line); border-radius:20px;
+    padding:40px; margin-top:60px; text-align:center; display:flex;
+    flex-direction:column; align-items:center; gap:16px;
+  }
+  .cta-banner h3{font-size:1.4rem;}
+
+  /* ---------- SERVICOS ---------- */
+  .servicos{background:var(--teal); color:var(--paper);}
+  .servicos .eyebrow{color:var(--sage);}
+  .servicos h2{color:var(--paper); font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:20ch; margin:14px 0 50px;}
+  .serv-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(251,247,239,0.16);}
+  @media(max-width:800px){ .serv-grid{grid-template-columns:1fr;} }
+  .serv-card{
+    background:var(--teal); padding:34px 30px; transition:background .3s ease;
+  }
+  .serv-card:hover{background:#183D34;}
+  .serv-card .n{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--honey); margin-bottom:14px; display:block;}
+  .serv-card h3{color:var(--paper); font-size:1.14rem; font-weight:600; margin-bottom:10px; font-family:'Fraunces',serif;}
+  .serv-card p{font-size:0.92rem; color:rgba(251,247,239,0.72);}
+
+  /* ---------- EQUIPE ---------- */
+  .equipe{background:var(--paper);}
+  .equipe .head{max-width:620px; margin-bottom:50px;}
+  .equipe h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin:14px 0 0;}
+  .equipe-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media(max-width:800px){ .equipe-grid{grid-template-columns:1fr;} }
+  .equipe-card{
+    background:var(--paper-deep); border:1px solid var(--line); border-radius:16px; padding:28px;
+  }
+  .equipe-avatar{
+    width:64px; height:64px; border-radius:50%; background:var(--sage);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:600; color:var(--teal); font-size:1.2rem;
+    margin-bottom:16px;
+  }
+  .equipe-card h3{font-size:1.1rem; margin-bottom:4px;}
+  .equipe-role{font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--teal-light); margin-bottom:12px; display:block;}
+  .equipe-card p{font-size:0.88rem; color:var(--ink);}
+
+  /* ---------- DEPOIMENTOS ---------- */
+  .depoimentos{background:var(--paper-deep); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .depoimentos .head{max-width:620px; margin-bottom:50px;}
+  .depoimentos h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin:14px 0 0;}
+  .depo-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
+  @media(max-width:800px){ .depo-grid{grid-template-columns:1fr;} }
+  .depo-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:32px;
+  }
+  .depo-card p{font-style:italic; font-size:0.98rem; margin-bottom:20px; color:var(--teal);}
+  .depo-author{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; font-weight:500; color:var(--teal-light);}
+
+  /* ---------- LOCALIZAÇÃO / MAPS ---------- */
+  .localizacao{background:var(--paper);}
+  .map-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; margin-top:40px;}
+  @media(max-width:900px){ .map-grid{grid-template-columns:1fr;} }
+  .map-container{
+    width:100%; height:380px; border-radius:20px; overflow:hidden;
+    border:1px solid var(--line); box-shadow:0 8px 24px rgba(24,37,33,0.06);
+  }
+  .map-container iframe{width:100%; height:100%; border:0;}
+  .map-info{background:var(--paper-deep); border:1px solid var(--line); border-radius:20px; padding:36px;}
+  .map-info h3{font-size:1.4rem; margin-bottom:12px;}
+  .map-info p{color:var(--teal-light); margin-bottom:24px; font-size:0.96rem;}
+
+  /* ---------- DIFERENCIAIS ---------- */
+  .dif-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:34px; margin-top:50px;}
+  @media(max-width:800px){ .dif-grid{grid-template-columns:1fr;} }
+  .dif-card{border-top:2px solid var(--teal); padding-top:20px;}
+  .dif-card h3{font-size:1.15rem; margin-bottom:10px;}
+  .dif-card p{color:var(--teal-light); font-size:0.95rem;}
+  .diferenciais .head{max-width:620px;}
+  .diferenciais h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin:14px 0 0;}
+
+  /* ---------- CONTATO ---------- */
+  .contato{background:var(--paper-deep); border-top:1px solid var(--line);}
+  .contato-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  @media(max-width:900px){ .contato-grid{grid-template-columns:1fr; gap:36px;} }
+  .contato h2{font-size:clamp(1.8rem,3.4vw,2.6rem); margin:14px 0 20px;}
+  .contato p.lead{color:var(--teal-light); max-width:44ch; margin-bottom:32px;}
+  .contact-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .info-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:34px;
+  }
+  .info-row{display:flex; gap:16px; padding:16px 0; border-bottom:1px solid var(--line);}
+  .info-row:last-child{border-bottom:none; padding-bottom:0;}
+  .info-row:first-child{padding-top:0;}
+  .info-row .k{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--honey); width:110px; flex-shrink:0; padding-top:2px;}
+  .info-row .v{font-size:0.96rem;}
+  .info-row .v a{border-bottom:1px solid var(--sage);}
+  .info-row .v a:hover{color:var(--honey);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--teal); color:rgba(251,247,239,0.6); padding:36px 0;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+  footer .logo{color:var(--paper); font-size:1.05rem;}
+  footer .logo span{color:var(--honey);}
+  footer small{font-family:'IBM Plex Mono',monospace; font-size:0.72rem;}
+
+  .pill{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.7rem;
+    border:1px solid var(--teal); color:var(--teal); padding:4px 12px; border-radius:100px;
+    margin-top:6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">ABACO<span>.</span></div>
+    <div class="navlinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#metodo">Método</a>
+      <a href="#servicos">Terapias</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a class="navcta" href="#contato">Agendar conversa</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Terapia comportamental · São Lourenço-MG e região</span>
+      <h1>Cada pequeno avanço muda a rotina de <em>toda a família.</em></h1>
+      <p class="lead">Acompanhamos crianças e adolescentes com TEA e outros transtornos do desenvolvimento com Terapia ABA — com acolhimento, no ritmo da criança e de mãos dadas com os pais.</p>
+      
+      <div class="hero-highlights">
+        <span>✓ Equipe Multidisciplinar</span>
+        <span>✓ Plano 100% Individual</span>
+        <span>✓ Acompanhamento Familiar</span>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://wa.me/5535998021010?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Cl%C3%ADnica%20ABACO%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a class="btn-ghost" href="https://www.instagram.com/clinicaabaco/" target="_blank" rel="noopener">Ver no Instagram</a>
+      </div>
+      <div class="badge-row">
+        <div><strong>+6 anos</strong>de atuação</div>
+        <div><strong>Atendimento</strong>Especializado</div>
+      </div>
+    </div>
+    <div>
+      <div class="hero-visual-card">
+        <div class="stairs">
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+        </div>
+        <div class="stairs-caption">CADA HABILIDADE, UM DEGRAU DE CADA VEZ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="reveal">
+      <span class="eyebrow">Sobre a clínica</span>
+      <h2>Cuidado especializado e de perto há mais de seis anos.</h2>
+      <p class="lead">Atendimento humanizado para crianças e adolescentes com TEA e suporte contínuo para a família.</p>
+    </div>
+    <div class="sobre-list reveal">
+      <p>A ABACO nasceu em São Lourenço com uma missão clara: criar um espaço seguro onde cada evolução seja construída no tempo certo, respeitando a individualidade da criança.</p>
+      <p>Entendemos que o desenvolvimento não acontece de forma isolada. Por isso, aliamos Psicologia, Terapia Ocupacional e Fonoaudiologia com um pilar essencial: a orientação ativa aos pais e responsáveis.</p>
+      <p>Mais do que aplicar intervenções, nós caminhamos lado a lado com a família para levar o aprendizado da clínica para o dia a dia em casa e na escola.</p>
+    </div>
+  </div>
+</section>
+
+<section class="metodo" id="metodo">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Como o acompanhamento acontece</span>
+      <h2>Um caminho construído em etapas</h2>
+      <p style="color:var(--teal-light)">A Terapia ABA avança dividindo cada habilidade em passos pequenos e alcançáveis — e é assim que a ABACO estrutura o cuidado, do primeiro contato ao acompanhamento contínuo.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <h3>Escuta e avaliação</h3>
+        <p>Primeiro encontro com a família para entender a rotina, as necessidades e o histórico da criança.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">02</div>
+        <h3>Plano individual</h3>
+        <p>Definição dos objetivos terapêuticos, únicos para cada paciente — sem protocolos genéricos.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">03</div>
+        <h3>Sessões estruturadas</h3>
+        <p>Encontros regulares de Terapia ABA, terapia ocupacional e fonoaudiologia, no ritmo de cada um.</p>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">04</div>
+        <h3>Família acompanhada</h3>
+        <p>Orientação contínua para pais e responsáveis, para que o progresso siga fora da clínica.</p>
+      </div>
+    </div>
+
+    <!-- CTA Intermediário -->
+    <div class="cta-banner reveal">
+      <h3>Quer entender qual o plano de acompanhamento ideal para o seu filho?</h3>
+      <a class="btn-primary" href="https://wa.me/5535998021010?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20plano%20de%20acompanhamento." target="_blank" rel="noopener">Conversar pelo WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <span class="eyebrow reveal">Áreas de atuação</span>
+    <h2 class="reveal">Acompanhamento completo e multidisciplinar sob o mesmo teto.</h2>
+    <div class="serv-grid reveal">
+      <div class="serv-card">
+        <span class="n">01</span>
+        <h3>Terapia ABA</h3>
+        <p>Análise do Comportamento Aplicada para desenvolvimento de habilidades sociais, comunicativas e de autonomia.</p>
+      </div>
+      <div class="serv-card">
+        <span class="n">02</span>
+        <h3>Psicologia</h3>
+        <p>Acompanhamento psicológico especializado para crianças, adolescentes e suporte emocional para a família.</p>
+      </div>
+      <div class="serv-card">
+        <span class="n">03</span>
+        <h3>Terapia ocupacional</h3>
+        <p>Estímulo à independência nas atividades do dia a dia e à autorregulação sensorial.</p>
+      </div>
+      <div class="serv-card">
+        <span class="n">04</span>
+        <h3>Fonoaudiologia</h3>
+        <p>Desenvolvimento focado na fala, linguagem e comunicação funcional.</p>
+      </div>
+      <div class="serv-card">
+        <span class="n">05</span>
+        <h3>Apoio à educação</h3>
+        <p>Parceria com escolas para alinhamento pedagógico e suporte no processo de inclusão.</p>
+      </div>
+      <div class="serv-card">
+        <span class="n">06</span>
+        <h3>Orientação a famílias</h3>
+        <p>Treinamentos práticos para que pais e cuidadores apliquem estratégias eficazes na rotina diária.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="equipe" id="equipe">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Corpo Clínico</span>
+      <h2>Quem acompanha a sua família</h2>
+    </div>
+    <div class="equipe-grid">
+      <div class="equipe-card reveal">
+        <div class="equipe-avatar">PSI</div>
+        <h3>Coordenação de Psicologia</h3>
+        <span class="equipe-role">Análise do Comportamento / ABA</span>
+        <p>Especialistas dedicados ao plano terapêutico individual e ao suporte comportamental contínuo.</p>
+      </div>
+      <div class="equipe-card reveal">
+        <div class="equipe-avatar">TO</div>
+        <h3>Terapia Ocupacional</h3>
+        <span class="equipe-role">Integração Sensorial & Autonomia</span>
+        <p>Foco no desenvolvimento motor, autonomia nas tarefas diárias e adaptação do ambiente.</p>
+      </div>
+      <div class="equipe-card reveal">
+        <div class="equipe-avatar">FON</div>
+        <h3>Fonoaudiologia</h3>
+        <span class="equipe-role">Linguagem & Comunicação</span>
+        <p>Trabalho voltado para a ampliação da comunicação expressiva e desenvolvimento da fala.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>O que dizem as famílias</h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <p>"O acolhimento com a nossa família fez toda a diferença desde o primeiro dia. Ver o avanço na comunicação do nosso filho brought paz para nossa rotina."</p>
+        <div class="depo-author">— Mãe de paciente atendido na ABACO</div>
+      </div>
+      <div class="depo-card reveal">
+        <p>"A equipe trabalha de forma integrada de verdade. O suporte que nos dão para aplicar as orientações em casa mudou nossa convivência."</p>
+        <div class="depo-author">— Pai de paciente acompanhado há 2 anos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="localizacao" id="localizacao">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Onde estamos</span>
+      <h2>Fácil acesso no centro de São Lourenço</h2>
+    </div>
+    <div class="map-grid reveal">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.815340156942!2d-45.0538744!3d-22.1132717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x943549ee1ca46f6f%3A0xb3ad9a6ef80e8e20!2sR.%20Jaime%20Sotto%20Mayor%2C%20473%20-%20Federal%2C%20S%C3%A3o%20Louren%C3%A7o%20-%20MG%2C%2037470-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="map-info">
+        <h3>Nossa Estrutura</h3>
+        <p>Um ambiente preparado e acolhedor para receber crianças, adolescentes e suas famílias com conforto e segurança.</p>
+        <p><strong>Endereço:</strong><br>Rua Jaime Sotto Mayor, 473 — São Lourenço, MG</p>
+        <a class="btn-ghost" href="https://maps.app.goo.gl/3LNicqKbbsUBfnBy6" target="_blank" rel="noopener">Abrir Rota no Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diferenciais">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Por que a ABACO</span>
+      <h2>Diferenciais</h2>
+    </div>
+    <div class="dif-grid">
+      <div class="dif-card reveal">
+        <h3>Equipe multidisciplinar</h3>
+        <p>Psicologia, terapia ocupacional e fonoaudiologia sob o mesmo acompanhamento, sem fragmentar o cuidado.</p>
+      </div>
+      <div class="dif-card reveal">
+        <h3>Plano sempre individual</h3>
+        <p>Nenhum paciente segue um roteiro pronto — cada plano nasce da história e do ritmo da criança.</p>
+      </div>
+      <div class="dif-card reveal">
+        <h3>Presença de perto</h3>
+        <p>Referência em São Lourenço e região, com acompanhamento próximo às famílias em cada etapa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contato" id="contato">
+  <div class="wrap contato-grid">
+    <div class="reveal">
+      <span class="eyebrow">Fale com a clínica</span>
+      <h2>Vamos conversar sobre o próximo passo?</h2>
+      <p class="lead">Marque uma conversa inicial para entender como a ABACO pode acompanhar o desenvolvimento da sua criança ou adolescente.</p>
+      <div class="contact-row">
+        <a class="btn-primary" href="https://wa.me/5535998021010?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Cl%C3%ADnica%20ABACO%20e%20gostaria%20de%20agendar%20uma%20conversa." target="_blank" rel="noopener">Conversar no WhatsApp</a>
+        <a class="btn-ghost" href="https://www.instagram.com/clinicaabaco/" target="_blank" rel="noopener">Ver no Instagram</a>
+      </div>
+    </div>
+    <div class="info-card reveal">
+      <div class="info-row">
+        <div class="k">Endereço</div>
+        <div class="v">Rua Jaime Sotto Mayor, 473 — São Lourenço, MG</div>
+      </div>
+      <div class="info-row">
+        <div class="k">Registro</div>
+        <div class="v">CRP-04/PJ — 3356 <span class="pill">Ativa desde 2019</span></div>
+      </div>
+      <div class="info-row">
+        <div class="k">WhatsApp</div>
+        <div class="v"><a href="https://wa.me/5535998021010" target="_blank" rel="noopener">(35) 99802-1010</a></div>
+      </div>
+      <div class="info-row">
+        <div class="k">Instagram</div>
+        <div class="v"><a href="https://www.instagram.com/clinicaabaco/" target="_blank" rel="noopener">@clinicaabaco</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">ABACO<span>.</span></div>
+    <small>PROTÓTIPO DE SITE · NÃO OFICIAL</small>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  items.forEach(i=>io.observe(i));
+</script>
+
+</body>
+</html>
