@@ -3,140 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clínica ABACO — Links Oficiais</title>
+<title>Links — Clínica ABACO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome para ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
   :root {
     --paper: #FBF7EF;
     --paper-deep: #EFE4CC;
+    --ink: #182521;
     --teal: #1F4A40;
     --teal-light: #3F6E61;
     --honey: #E2A63C;
-    --line: rgba(24,37,33,0.12);
+    --sage: #B7CFB9;
+    --line: rgba(24, 37, 33, 0.14);
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  
   body {
     background: var(--paper);
-    color: var(--teal);
+    color: var(--ink);
     font-family: 'Work Sans', sans-serif;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
   }
-  .tree-container {
+
+  .links-container {
     width: 100%;
-    max-width: 420px;
+    max-width: 480px;
     text-align: center;
   }
-  .avatar {
-    width: 88px;
-    height: 88px;
-    background: var(--teal);
-    color: var(--paper);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  /* Header / Profile */
+  .profile-brand {
     font-family: 'Fraunces', serif;
-    font-size: 1.8rem;
     font-weight: 900;
-    margin: 0 auto 16px;
-    box-shadow: 0 8px 20px rgba(31,74,64,0.15);
-  }
-  .avatar span { color: var(--honey); }
-  h1 {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--teal);
+    letter-spacing: -0.02em;
     margin-bottom: 6px;
   }
-  p.subtitle {
-    font-size: 0.88rem;
+  .profile-brand span { color: var(--honey); }
+
+  .profile-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--teal-light);
     margin-bottom: 28px;
   }
-  .links-list {
+
+  /* Degraus Ilustrativos (Identidade Visual) */
+  .stairs-mini {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    height: 32px;
+    margin-bottom: 32px;
+  }
+  .stairs-mini .step {
+    width: 10px;
+    border-radius: 3px 3px 0 0;
+  }
+  .stairs-mini .step:nth-child(1) { height: 8px; background: #CFE0D0; }
+  .stairs-mini .step:nth-child(2) { height: 14px; background: #B7CFB9; }
+  .stairs-mini .step:nth-child(3) { height: 20px; background: #8FB79A; }
+  .stairs-mini .step:nth-child(4) { height: 26px; background: var(--teal-light); }
+  .stairs-mini .step:nth-child(5) { height: 32px; background: var(--teal); }
+
+  /* Lista de Links */
+  .link-list {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
+    width: 100%;
   }
-  .link-card {
-    background: var(--paper-deep);
-    border: 1px solid var(--line);
-    color: var(--teal);
-    padding: 16px 20px;
-    border-radius: 14px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  .link-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(24, 37, 33, 0.03);
   }
-  .link-card:hover {
+
+  .link-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(24,37,33,0.08);
-    background: #e8dbbf;
+    border-color: var(--teal-light);
+    box-shadow: 0 6px 18px rgba(24, 37, 33, 0.08);
   }
-  .link-card.featured {
+
+  .link-btn.primary {
     background: var(--teal);
     color: var(--paper);
     border: none;
-    box-shadow: 0 8px 20px rgba(31,74,64,0.2);
+    box-shadow: 0 8px 20px rgba(31, 74, 64, 0.25);
   }
-  .link-card.featured:hover {
-    background: var(--teal-light);
+
+  .link-btn.primary:hover {
+    background: #183D34;
   }
-  footer {
-    margin-top: 36px;
-    font-size: 0.75rem;
+
+  .link-btn.primary .icon-left,
+  .link-btn.primary .arrow {
+    color: var(--honey);
+  }
+
+  .icon-left {
+    font-size: 1.15rem;
+    width: 28px;
+    text-align: left;
     color: var(--teal-light);
-    font-family: monospace;
+  }
+
+  .btn-text {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 6px;
+  }
+
+  .arrow {
+    font-size: 0.85rem;
+    color: var(--teal-light);
+    opacity: 0.6;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .link-btn:hover .arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 40px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--teal-light);
+    letter-spacing: 0.05em;
+  }
+
+  footer a {
+    color: var(--teal);
+    text-decoration: underline;
   }
 </style>
 </head>
 <body>
 
-<div class="tree-container">
-  <div class="avatar">A<span>.</span></div>
-  <h1>Clínica ABACO</h1>
-  <p class="subtitle">Terapia ABA e Acompanhamento Multidisciplinar em São Lourenço-MG</p>
+<div class="links-container">
+  
+  <div class="profile-brand">ABACO<span>.</span></div>
+  <div class="profile-tagline">Terapia ABA em São Lourenço-MG</div>
 
-  <div class="links-list">
-    <!-- Link Principal / Destaque -->
-    <a href="https://wa.me/5535998021010?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20gostaria%20de%20informa%C3%A7%C3%B5es." class="link-card featured" target="_blank">
-      💬 Agendar Consulta via WhatsApp
+  <!-- Mini degraus da identidade visual -->
+  <div class="stairs-mini">
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+    <div class="step"></div>
+  </div>
+
+  <div class="link-list">
+
+    <!-- WhatsApp (Destaque Principal) -->
+    <a href="https://wa.me/5535998021010?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20de%20links%20e%20gostaria%20de%20informa%C3%A7%C3%B5es." class="link-btn primary" target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp icon-left"></i>
+      <span class="btn-text">Agendar conversa via WhatsApp</span>
+      <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
 
     <!-- Site Oficial -->
-    <a href="#" class="link-card">
-      🌐 Conhecer Nosso Site Oficial
+    <a href="index.html" class="link-btn">
+      <i class="fa-solid fa-globe icon-left"></i>
+      <span class="btn-text">Conhecer o Nosso Site</span>
+      <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
 
     <!-- Instagram -->
-    <a href="https://www.instagram.com/clinicaabaco/" class="link-card" target="_blank">
-      📸 Siga no Instagram (@clinicaabaco)
+    <a href="https://www.instagram.com/clinicaabaco/" class="link-btn" target="_blank" rel="noopener">
+      <i class="fa-brands fa-instagram icon-left"></i>
+      <span class="btn-text">Siga-nos no Instagram</span>
+      <i class="fa-solid fa-chevron-right arrow"></i>
+    </a>
+
+    <!-- Localização Google Maps -->
+    <a href="https://maps.app.goo.gl/3LNicqKbbsUBfnBy6" class="link-btn" target="_blank" rel="noopener">
+      <i class="fa-solid fa-location-dot icon-left"></i>
+      <span class="btn-text">Como Chegar à Clínica</span>
+      <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
 
     <!-- Facebook -->
-    <a href="https://www.facebook.com" class="link-card" target="_blank">
-      📘 Página no Facebook
+    <a href="https://www.facebook.com/ClinicaABACO" class="link-btn" target="_blank" rel="noopener">
+      <i class="fa-brands fa-facebook-f icon-left"></i>
+      <span class="btn-text">Página do Facebook</span>
+      <i class="fa-solid fa-chevron-right arrow"></i>
     </a>
 
-    <!-- Localização -->
-    <a href="https://maps.app.goo.gl/3LNicqKbbsUBfnBy6" class="link-card" target="_blank">
-      📍 Como Chegar (Google Maps)
-    </a>
   </div>
 
   <footer>
-    CLÍNICA ABACO · SÃO LOURENÇO-MG
+    Rua Jaime Sotto Mayor, 473 — São Lourenço-MG<br>
+    CRP-04/PJ — 3356
   </footer>
+
 </div>
 
 </body>
