@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica ABACO — Links Oficiais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBF7EF;
+    --paper-deep: #EFE4CC;
+    --teal: #1F4A40;
+    --teal-light: #3F6E61;
+    --honey: #E2A63C;
+    --line: rgba(24,37,33,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--teal);
+    font-family: 'Work Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+  .tree-container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+  .avatar {
+    width: 88px;
+    height: 88px;
+    background: var(--teal);
+    color: var(--paper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0 auto 16px;
+    box-shadow: 0 8px 20px rgba(31,74,64,0.15);
+  }
+  .avatar span { color: var(--honey); }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  p.subtitle {
+    font-size: 0.88rem;
+    color: var(--teal-light);
+    margin-bottom: 28px;
+  }
+  .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .link-card {
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    color: var(--teal);
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(24,37,33,0.08);
+    background: #e8dbbf;
+  }
+  .link-card.featured {
+    background: var(--teal);
+    color: var(--paper);
+    border: none;
+    box-shadow: 0 8px 20px rgba(31,74,64,0.2);
+  }
+  .link-card.featured:hover {
+    background: var(--teal-light);
+  }
+  footer {
+    margin-top: 36px;
+    font-size: 0.75rem;
+    color: var(--teal-light);
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+
+<div class="tree-container">
+  <div class="avatar">A<span>.</span></div>
+  <h1>Clínica ABACO</h1>
+  <p class="subtitle">Terapia ABA e Acompanhamento Multidisciplinar em São Lourenço-MG</p>
+
+  <div class="links-list">
+    <!-- Link Principal / Destaque -->
+    <a href="https://wa.me/5535998021010?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20gostaria%20de%20informa%C3%A7%C3%B5es." class="link-card featured" target="_blank">
+      💬 Agendar Consulta via WhatsApp
+    </a>
+
+    <!-- Site Oficial -->
+    <a href="#" class="link-card">
+      🌐 Conhecer Nosso Site Oficial
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/clinicaabaco/" class="link-card" target="_blank">
+      📸 Siga no Instagram (@clinicaabaco)
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com" class="link-card" target="_blank">
+      📘 Página no Facebook
+    </a>
+
+    <!-- Localização -->
+    <a href="https://maps.app.goo.gl/3LNicqKbbsUBfnBy6" class="link-card" target="_blank">
+      📍 Como Chegar (Google Maps)
+    </a>
+  </div>
+
+  <footer>
+    CLÍNICA ABACO · SÃO LOURENÇO-MG
+  </footer>
+</div>
+
+</body>
+</html>
